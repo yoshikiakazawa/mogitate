@@ -214,36 +214,58 @@
     margin-bottom: 1rem;
 }
 
-.detail__link {
+.detail__btn-back {
     text-decoration: none;
     color: rgb(111,184,252);
     font-weight: bold;
-}
-
-.detail__input--file {
-    margin-top: 1rem;
 }
 
 .detail__input {
     width: 350px;
 }
 
-.detail__label {
-    margin-bottom: 1rem;
+.detail__btn-delete {
+    cursor: pointer;
+    border: none;
+    font-size: 30px;
+    color: rgb(248,21,26);
+    position: absolute;
+    bottom:40px;
+    right: 10px;
 }
 
-.detail__input--text {
-    height: 120px;
+/* 商品詳細ページ、新規登録ページ共通 */
+.form__input-file {
+    margin-top: .75rem;
 }
 
-.detail__input--text input {
-    padding: 1rem .5rem;
+.form__input-field,
+.form__input-field--textarea {
+    width: 100%;
+    margin-top: .75rem;
+    padding: .75rem .5rem;
     border-radius: 5px;
     border: 2px solid rgb(231,231,230) ;
+}
+
+.form__input-field::placeholder,
+.form__input-field--textarea::placeholder {
+    color: rgb(192, 191, 190) ;
+}
+
+.form__input-field {
     font-size: 16px;
 }
 
-.detail__checkbox {
+.form__input-field--textarea {
+    font-size: 14px;
+}
+
+.form__checkbox--group {
+    margin-top: .75rem;
+}
+
+.form__checkbox {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -254,11 +276,11 @@
     cursor: pointer;
 }
 
-.detail__checkbox:checked {
+.form__checkbox:checked {
     background-color: rgb(73,73,73);
 }
 
-.detail__checkbox:checked::after {
+.form__checkbox:checked::after {
     content: '✔';
     color: white;
     font-size: 14px;
@@ -267,24 +289,12 @@
     left: 4px;
 }
 
-.detail__checkbox--label {
+.form__checkbox--label {
     margin-left: .5rem;
     margin-right: 2.5rem;
 }
 
-.detail__description {
-    margin: 2rem 0;
-}
-
-.detail__description--textarea {
-    font-size: 14px;
-    padding: 4px;
-    border-radius: 5px;
-    border: 2px solid rgb(231,231,230) ;
-}
-
-.detail__back--link {
-    font-size: 16px;
+.form__btn-back {
     font-weight: bold;
     text-decoration: none;
     border-radius: 3px;
@@ -294,11 +304,11 @@
     margin-right: 1rem;
 }
 
-.detail__back--link:hover {
+.form__btn-back:hover {
     background-color: rgb(192, 191, 190);
 }
 
-.detail__form--btn {
+.form__btn-submit {
     font-size: 16px;
     font-weight: bold;
     background: rgb(245, 200, 0);
@@ -308,16 +318,45 @@
     border: none;
 }
 
-.detail__form--btn:hover {
+.form__btn-submit:hover {
     background-color: rgb(221, 180, 0);
 }
 
-.detail__delete-btn {
-    cursor: pointer;
-    border: none;
-    position: absolute;
-    font-size: 30px;
-    color: red;
-    bottom:40px;
-    right: 10px;
+/* 新規登録ページ */
+.register {
+    width: 800px;
+    margin: 0 auto;
+    padding: 4rem 0 2rem;
 }
+
+.register__ttl {
+    font-size: 28px;
+    margin-bottom: 3rem;
+}
+
+.required {
+    background-color: rgb(248,21,26);
+    color: rgb(224,223,222);
+    padding: 2px 4px;
+    font-size: 12px;
+    margin-left: .5rem;
+}
+
+.register__input,
+.register__description--textarea {
+    width: 100%;
+    margin-top: .5rem;
+    padding: .75rem .5rem;
+    border: 2px solid rgb(231,231,230) ;
+}
+
+.register__span {
+    font-size: 12px;
+    color: rgb(248,21,26);
+    font-weight: bold;
+}
+
+.register__checkbox {
+    margin-top: .5rem;
+}
+

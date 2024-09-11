@@ -3,7 +3,7 @@
 @section('main')
 <div class="product-lists">
     <div class="flex space-between align-items-center">
-        @if(isset($name) && !empty($name))
+        @if(!empty($name))
         <h2 class="product-lists__ttl">“{{ $name }}”の商品一覧</h2>
         @else
         <h2 class="product-lists__ttl">商品一覧</h2>
@@ -13,14 +13,14 @@
             {{ session('fs_msg') }}
         </div>
         @endif
-        <a class="product-lists__link" href="">+ 商品を追加</a>
+        <a class="product-lists__link" href="{{ route('create') }}">+ 商品を追加</a>
     </div>
     <div class="product-lists__grid">
         <div class="product-lists__search">
             <form class="product-lists__search__form" action="{{ route('search') }}" method="get">
                 <input class="product-lists__search__form--input" type="text" name="name" value="{{ $name ?? '' }}"
                     placeholder="商品名で検索">
-                <button class="product-lists__search__form--btn">検索</button>
+                <button class="product-lists__search__form--btn" type="submit">検索</button>
                 <span class="product-lists__search__form--span">価格順で表示</span>
                 <div class="product-lists__search__form--pull-down">
                     <select name="sort">
@@ -38,7 +38,7 @@
                     </label>
                     <input type="hidden" name="name" value="{{ $name ?? '' }}">
                     <input type="hidden" name="sort" value="">
-                    <button class="product-lists__search__form--reset-btn-close">
+                    <button class="product-lists__search__form--reset-btn-close" type="submit">
                         <i class="bi bi-x-circle"></i>
                     </button>
                 </div>
@@ -51,7 +51,7 @@
         <div class="product-lists__card__grid">
             @foreach ($products as $product)
             <div class="product-card">
-                <a class="product-card__link" href="{{ route('detail',$product->id) }}">
+                <a class="product-card__link" href="{{ route('detail', ['productId' => $product->id]) }}">
                     <img class="product-card__img" src="{{ $product->image }}" alt="{{ $product->name }}">
                     <div class="flex space-between align-items-center product-card__detail">
                         <p>{{ $product->name }}</p>

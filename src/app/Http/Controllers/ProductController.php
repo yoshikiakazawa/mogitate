@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Season;
 use Carbon\Carbon;
-use App\Http\Requests\UpdateProductRequest;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
     public function index()
     {
         $products = Product::Paginate(6);
-        return view('index', compact('products'));
+        return view('products/index', compact('products'));
     }
 
     public function search(Request $request) {
@@ -30,20 +30,25 @@ class ProductController extends Controller
         }
         $products = $query->paginate(6)->appends($request->all());
         if ($products->isEmpty()) {
-            return view('index', compact('products', 'name'))->with('message', '検索結果がありません。');
+            return view('products/index', compact('products', 'name'))->with('message', '検索結果がありません。');
         }
-        return view('index', compact('products', 'name', 'sort'));
+        return view('products/index', compact('products', 'name', 'sort'));
     }
 
-    public function detail($id)
+    public function create()
     {
-        $product = Product::find($id);
-        return view('detail', compact('product'));
+        return view('products/register');
     }
 
-    public function update(UpdateProductRequest $request,$id)
+    public function detail($productId)
     {
-        $product = Product::find($id);
+        $product = Product::find($productId);
+        return view('products/detail', compact('product'));
+    }
+
+    public function update(ProductRequest $request,$productId)
+    {
+        $product = Product::find($productId);
 
         $image = $request->file('image');
         $filename = time() . '.' . $image->getClientOriginalExtension();
@@ -57,13 +62,31 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->save();
         $product->seasons()->sync($request->input('seasons', []));
-        return redirect()->back()->with('message', '登録を変更しました。');
+        return redirect()->back()->with('message', '変更しました。');
     }
 
-    public function delete($id)
+    public function delete($productId)
     {
-        $product = Product::find($id)->delete();
-        session()->flash('fs_msg', '削除しました');
+        $product = Product::find($productId)->delete();
+        session()->flash('fs_msg', '削除しました。');
+        return redirect()->route('index');
+    }
+
+    public function store(ProductRequest $request)
+    {
+        $image = $request->file('image');
+        $filename = time() . '.' . $image->getClientOriginalExtension();
+        $path = storage_path('app/public/images/' . $filename);
+        $image->move(storage_path('app/public/images'), $filename);
+        $path = '/storage/images/' . $filename;
+        $product = Product::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'image' => $path,
+            'description' => $request->description,
+        ]);
+        $product->seasons()->sync($request->input('seasons', []));
+        session()->flash('fs_msg', '登録しました。');
         return redirect()->route('index');
     }
 }

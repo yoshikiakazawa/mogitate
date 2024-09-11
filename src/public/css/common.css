@@ -46,8 +46,10 @@ input, textarea, select:focus {
 
 .error {
     margin-top: 5px;
+    height: 2rem;
     text-align: left;
     color: #ed1a3d;
+    font-size: 14px;
 }
 
 .flash_message{
