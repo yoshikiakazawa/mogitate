@@ -1,13 +1,17 @@
 @extends('layouts.app')
 
 @section('main')
-
-<div class="main product-lists">
+<div class="product-lists">
     <div class="flex space-between align-items-center">
         @if(isset($name) && !empty($name))
         <h2 class="product-lists__ttl">“{{ $name }}”の商品一覧</h2>
         @else
         <h2 class="product-lists__ttl">商品一覧</h2>
+        @endif
+        @if (session('fs_msg'))
+        <div class="flash_message">
+            {{ session('fs_msg') }}
+        </div>
         @endif
         <a class="product-lists__link" href="">+ 商品を追加</a>
     </div>
@@ -47,11 +51,13 @@
         <div class="product-lists__card__grid">
             @foreach ($products as $product)
             <div class="product-card">
-                <img class="product-card__img" src="{{ $product->image }}" alt="{{ $product->name }}">
-                <div class="flex space-between align-items-center product-card__detail">
-                    <p>{{ $product->name }}</p>
-                    <p>￥{{ $product->price }}</p>
-                </div>
+                <a class="product-card__link" href="{{ route('detail',$product->id) }}">
+                    <img class="product-card__img" src="{{ $product->image }}" alt="{{ $product->name }}">
+                    <div class="flex space-between align-items-center product-card__detail">
+                        <p>{{ $product->name }}</p>
+                        <p>￥{{ $product->price }}</p>
+                    </div>
+                </a>
             </div>
             @endforeach
         </div>

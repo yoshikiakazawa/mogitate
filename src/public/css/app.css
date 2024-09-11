@@ -5,6 +5,13 @@
     padding: 1rem;
 }
 
+/* 商品一覧ページ用 */
+.product-lists {
+    width: 95%;
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+
 .product-lists__ttl {
     font-size: 32px;
 }
@@ -16,7 +23,7 @@
     color: #111;
     border: none;
     border-radius: 5px;
-    padding: 1em 2em;
+    padding: 1rem 2rem;
     cursor: pointer;
     text-decoration: none;
 }
@@ -28,8 +35,8 @@
 .product-lists__grid {
     display: grid;
     grid-template-columns: 280px 1fr;
-    margin: 1.5em 0;
-    gap: 1.5em;
+    margin: 1.5rem 0;
+    gap: 1.5rem;
 }
 
 .product-lists__search {
@@ -40,7 +47,7 @@
 .product-lists__search__form--btn,
 .product-lists__search__form--pull-down select {
     width: 100%;
-    padding: 1em;
+    padding: 1rem;
     font-size: 16px;
 }
 
@@ -51,7 +58,7 @@
 }
 
 .product-lists__search__form--btn {
-    margin-bottom: 2em;
+    margin-bottom: 2rem;
     font-weight: bold;
     background: rgb(245, 200, 0);
     border-radius: 5px;
@@ -66,7 +73,7 @@
 .product-lists__search__form--span {
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
     display: block;
 }
 
@@ -122,13 +129,18 @@
 .product-lists__card__grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.5em;
+    gap: 1.5rem;
 }
 
 .product-card {
     background-color: rgb(255,255,255);
     border-radius: 5px;
     box-shadow: 2px 2px 4px gray;
+}
+
+.product-card__link {
+    text-decoration: none;
+    color: #111;
 }
 
 .product-card__img {
@@ -139,7 +151,7 @@
 }
 
 .product-card__detail {
-    padding: 1em;
+    padding: 1rem;
     font-size: 24px;
 }
 
@@ -188,4 +200,124 @@
 
 .pagination > * + * {
     margin-left: 8px;
+}
+
+/* 商品詳細ページ */
+.detail {
+    width: 800px;
+    margin: 0 auto;
+    padding: 4rem 0 2rem;
+    position: relative;
+}
+
+.detail__ttl {
+    margin-bottom: 1rem;
+}
+
+.detail__link {
+    text-decoration: none;
+    color: rgb(111,184,252);
+    font-weight: bold;
+}
+
+.detail__input--file {
+    margin-top: 1rem;
+}
+
+.detail__input {
+    width: 350px;
+}
+
+.detail__label {
+    margin-bottom: 1rem;
+}
+
+.detail__input--text {
+    height: 120px;
+}
+
+.detail__input--text input {
+    padding: 1rem .5rem;
+    border-radius: 5px;
+    border: 2px solid rgb(231,231,230) ;
+    font-size: 16px;
+}
+
+.detail__checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid rgb(73,73,73);
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.detail__checkbox:checked {
+    background-color: rgb(73,73,73);
+}
+
+.detail__checkbox:checked::after {
+    content: '✔';
+    color: white;
+    font-size: 14px;
+    position: relative;
+    top: -2px;
+    left: 4px;
+}
+
+.detail__checkbox--label {
+    margin-left: .5rem;
+    margin-right: 2.5rem;
+}
+
+.detail__description {
+    margin: 2rem 0;
+}
+
+.detail__description--textarea {
+    font-size: 14px;
+    padding: 4px;
+    border-radius: 5px;
+    border: 2px solid rgb(231,231,230) ;
+}
+
+.detail__back--link {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 3px;
+    padding: 1rem 3rem;
+    color: #111;
+    background-color: rgb(224,223,222);
+    margin-right: 1rem;
+}
+
+.detail__back--link:hover {
+    background-color: rgb(192, 191, 190);
+}
+
+.detail__form--btn {
+    font-size: 16px;
+    font-weight: bold;
+    background: rgb(245, 200, 0);
+    border-radius: 3px;
+    padding: .75rem 3rem;
+    cursor: pointer;
+    border: none;
+}
+
+.detail__form--btn:hover {
+    background-color: rgb(221, 180, 0);
+}
+
+.detail__delete-btn {
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    font-size: 30px;
+    color: red;
+    bottom:40px;
+    right: 10px;
 }

@@ -14,7 +14,7 @@
         "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
-input, select:focus {
+input, textarea, select:focus {
     outline: none;
 }
 
@@ -39,25 +39,20 @@ input, select:focus {
     align-items: center;
 }
 
-/* .ml-a {
-    margin-left: auto;
-} */
-
-.main {
-    width: 95%;
-    margin: 0 auto;
-    padding: 4rem 0;
+.flex-column {
+    display: flex;
+    flex-direction: column;
 }
-
-/* .flash_message {
-    text-align: center;
-    background-color: #00c32ce0;
-    padding: 0.25rem 0;
-    color: #fff;
-} */
 
 .error {
     margin-top: 5px;
     text-align: left;
     color: #ed1a3d;
+}
+
+.flash_message{
+    text-align: center;
+    background-color:rgb(111,184,252);
+    padding: .25rem 0;
+    color: #fff;
 }
