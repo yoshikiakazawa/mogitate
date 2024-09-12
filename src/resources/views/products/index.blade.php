@@ -23,8 +23,9 @@
                 <button class="product-lists__search__form--btn" type="submit">検索</button>
                 <span class="product-lists__search__form--span">価格順で表示</span>
                 <div class="product-lists__search__form--pull-down">
-                    <select name="sort">
-                        <option value="" {{ is_null(request()->input('sort')) ? 'selected' : '' }}>価格で並べ替え</option>
+                    <select name="sort" id="select">
+                        <option value="" disabled hidden {{ is_null(request()->input('sort')) ? 'selected' : ''
+                            }} >価格で並べ替え</option>
                         <option value="asc" {{ request()->input('sort') == 'asc' ? 'selected' : '' }}>価格が低い順</option>
                         <option value="desc" {{ request()->input('sort') == 'desc' ? 'selected' : '' }}>価格が高い順</option>
                     </select>

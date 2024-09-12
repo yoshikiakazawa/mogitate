@@ -19,7 +19,7 @@
 .product-lists__link {
     font-size: 20px;
     font-weight: bold;
-    background: rgb(245, 200, 0);
+    background: rgb(255, 169, 41);
     color: #111;
     border: none;
     border-radius: 5px;
@@ -29,7 +29,7 @@
 }
 
 .product-lists__link:hover {
-    background-color: #e6b800;
+    background-color: rgb(223, 148, 37);
 }
 
 .product-lists__grid {
@@ -49,6 +49,10 @@
     width: 100%;
     padding: 1rem;
     font-size: 16px;
+}
+
+.product-lists__search__form--input::placeholder {
+    color: rgb(192, 191, 190) ;
 }
 
 .product-lists__search__form--input {
@@ -82,20 +86,23 @@
 }
 
 .product-lists__search__form--pull-down select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+    color: #ccc;
+    background: #fff;
     border: 2px solid rgb(231,231,230) ;
     border-radius: 5px;
+    width: 100%;
+    padding: 1rem .5rem;
+    font-size: 16px;
+    appearance: none;
+    background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="70,100 100,40 40,40" fill="rgb(190,177,167)"/></svg>') no-repeat right 10px center;
+    background-size: 24px;
+    cursor: pointer;
 }
 
-.product-lists__search__form--pull-down::after {
-    content: "▼";
-    position: absolute;
-    left: 240px;
-    top: 20px;
-    pointer-events: none;
-    color:rgb(190,177,167);
+.product-lists__search__form--pull-down select:focus {
+    background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="70,40 100,100 40,100" fill="rgb(190,177,167)"/></svg>') no-repeat right 10px center;
+    background-size: 24px;
+    color: #111;
 }
 
 .product-lists__search__form--reset {
@@ -148,6 +155,11 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.product-card__img:hover {
+    opacity: 0.8;
 }
 
 .product-card__detail {
@@ -175,6 +187,10 @@
     color: #111;
 }
 
+.pagination li:not(.active):hover {
+    background: rgb(224,223,222);
+}
+
 .pagination a {
     color: #111;
     text-decoration: none;
@@ -200,6 +216,17 @@
 
 .pagination > * + * {
     margin-left: 8px;
+}
+
+.pagination li.disabled span {
+    display: block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 50%;
+    background-color:rgb(248,248,248);
+    color: rgb(248,248,248);
 }
 
 /* 商品詳細ページ */
