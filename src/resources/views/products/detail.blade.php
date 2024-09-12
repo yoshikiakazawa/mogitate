@@ -5,17 +5,10 @@
     <form action="{{ route('update', ['productId' => $product->id]) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        <div class="flex space-between align-items-center">
-            <div class="detail__ttl">
-                <a class="detail__btn-back" href="{{ route('index') }}">商品一覧</a>
-                <span>＞</span>
-                <span>{{ $product->name }}</span>
-            </div>
-            <div class="flash_message">
-                @if (session('message'))
-                {{ session('message') }}
-                @endif
-            </div>
+        <div class="flex align-items-center detail__ttl">
+            <a class="detail__btn-back" href="{{ route('index') }}">商品一覧</a>
+            <span>＞</span>
+            <span>{{ $product->name }}</span>
         </div>
         <div class="flex space-between align-items-center">
             <div class="detail__input">

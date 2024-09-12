@@ -62,7 +62,8 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->save();
         $product->seasons()->sync($request->input('seasons', []));
-        return redirect()->back()->with('message', '変更しました。');
+        session()->flash('fs_msg', '変更しました。');
+        return redirect()->route('index');
     }
 
     public function delete($productId)
