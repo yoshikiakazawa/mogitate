@@ -3,10 +3,13 @@
 ## もぎたて
 
 ## 機能一覧
+
 **商品一覧ページ /products**
+
 - 商品検索機能
 
 **商品詳細ページ /products/{productId}**
+
 - 登録情報更新
 - 登録削除
 
@@ -111,5 +114,5 @@ php artisan key:generate
 
 ## URL
 
-- 開発環境：http://localhost/
+- 開発環境：http://localhost/products
 - phpMyAdmin：http://localhost:8080/
