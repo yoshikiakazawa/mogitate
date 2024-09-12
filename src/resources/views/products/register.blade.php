@@ -31,7 +31,8 @@
             <label for="image">製品画像</label>
             <span class="required">必須</span>
         </div>
-        <input class="form__input-file" type="file" name="image">
+        <img src="" alt="" width="350px" id="imagePreview" style="margin: .25rem">
+        <input class="form__input-file" type="file" id="image" name="image" onchange="previewImage(event)">
         <div class="error">
             @error('image')
             {{$message}}
@@ -78,4 +79,5 @@
         </div>
     </form>
 </div>
+<script src="/js/image.js" defer></script>
 @endsection

@@ -19,8 +19,8 @@
         </div>
         <div class="flex space-between align-items-center">
             <div class="detail__input">
-                <img src="{{ $product->image }}" alt="{{ $product->name }}" width="350px">
-                <input class="form__input-file" type="file" name="image">
+                <img src="{{ $product->image }}" alt="{{ $product->name }}" width="350px" id="imagePreview">
+                <input class="form__input-file" type="file" id="image" name="image" onchange="previewImage(event)">
                 <div class="error">
                     @error('image')
                     {{$message}}
@@ -75,6 +75,7 @@
             <button class="form__btn-submit" type="submit">変更を保存</button>
         </div>
     </form>
+    @if (!$errors->any())
     <form action="{{ route('delete',  ['productId' => $product->id]) }}" method="post"
         onsubmit="return confirm('本当に削除しますか？')">
         @csrf
@@ -82,5 +83,7 @@
             <i class="bi bi-trash"></i>
         </button>
     </form>
+    @endif
 </div>
+<script src="/js/image.js" defer></script>
 @endsection

@@ -2,7 +2,7 @@
 
 @section('main')
 <div class="product-lists">
-    <div class="flex space-between align-items-center">
+    <div class="flex space-between align-items-center product-lists__ttl-group">
         @if(!empty($name))
         <h2 class="product-lists__ttl">“{{ $name }}”の商品一覧</h2>
         @else

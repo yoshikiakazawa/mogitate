@@ -5,19 +5,35 @@
     padding: 1rem;
 }
 
+.header > h1 {
+    font-family: "Kalam", cursive;
+    font-weight: 400;
+    font-style: normal;
+    max-width: 1230px;
+    min-width: 1100px;
+    width: calc(100% - 2rem);
+    margin: 0 auto;
+}
+
 /* 商品一覧ページ用 */
 .product-lists {
-    width: 95%;
+    max-width: 1230px;
+    min-width: 1100px;
+    width: calc(100% - 2rem);
     margin: 0 auto;
-    padding: 4rem 0;
+    padding: 4rem 1rem;
+}
+
+.product-lists__ttl-group {
+    min-width: 1100px;
 }
 
 .product-lists__ttl {
-    font-size: 32px;
+    font-size: 28px;
 }
 
 .product-lists__link {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     background: rgb(255, 169, 41);
     color: #111;
@@ -28,13 +44,19 @@
     text-decoration: none;
 }
 
+@media screen and (max-width: 1100px) {
+    .product-lists__link {
+        margin-right: 2rem;
+    }
+}
+
 .product-lists__link:hover {
     background-color: rgb(223, 148, 37);
 }
 
 .product-lists__grid {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 240px 1fr;
     margin: 1.5rem 0;
     gap: 1.5rem;
 }
@@ -44,11 +66,10 @@
 }
 
 .product-lists__search__form--input,
-.product-lists__search__form--btn,
 .product-lists__search__form--pull-down select {
     width: 100%;
     padding: 1rem;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .product-lists__search__form--input::placeholder {
@@ -56,14 +77,17 @@
 }
 
 .product-lists__search__form--input {
-    margin-bottom: 1em;
+    margin-bottom: 1.25em;
     border: 2px solid rgb(231,231,230) ;
     border-radius: 30px;
 }
 
 .product-lists__search__form--btn {
-    margin-bottom: 2rem;
+    width: 100%;
+    padding: .5rem 0;
+    font-size: 16px;
     font-weight: bold;
+    margin-bottom: 2rem;
     background: rgb(245, 200, 0);
     border-radius: 5px;
     cursor: pointer;
@@ -75,9 +99,9 @@
 }
 
 .product-lists__search__form--span {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     display: block;
 }
 
@@ -92,7 +116,7 @@
     border-radius: 5px;
     width: 100%;
     padding: 1rem .5rem;
-    font-size: 16px;
+    font-size: 14px;
     appearance: none;
     background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="70,100 100,40 40,40" fill="rgb(190,177,167)"/></svg>') no-repeat right 10px center;
     background-size: 24px;
@@ -111,18 +135,18 @@
 }
 
 .product-lists__search__form--reset-btn {
-    width: 140px;
-    margin-top: 1em;
-    padding: .5em 0;
+    width: 130px;
+    margin-top: 1.25em;
+    padding: .75em 0;
     border: 2px solid rgb(245, 200, 0);
     background-color: rgb(255,255,255);
     border-radius: 30px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .product-lists__search__form--reset-btn-txt {
     border: none;
-    width: 100px;
+    width: 90px;
     margin-left: 12px;
 }
 
@@ -140,6 +164,7 @@
 }
 
 .product-card {
+    min-width: 250px;
     background-color: rgb(255,255,255);
     border-radius: 5px;
     box-shadow: 2px 2px 4px gray;
@@ -164,7 +189,8 @@
 
 .product-card__detail {
     padding: 1rem;
-    font-size: 24px;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .pagination {
@@ -263,7 +289,7 @@
 
 /* 商品詳細ページ、新規登録ページ共通 */
 .form__input-file {
-    margin-top: .75rem;
+    width: 100%;
 }
 
 .form__input-field,
