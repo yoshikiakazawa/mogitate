@@ -6,13 +6,13 @@
         @csrf
         @method('PUT')
         <div class="flex align-items-center detail__ttl">
-            <a class="detail__btn-back" href="{{ route('index') }}">商品一覧</a>
+            <a class="detail__back-btn" href="{{ route('index') }}">商品一覧</a>
             <span>＞</span>
             <span>{{ $product->name }}</span>
         </div>
-        <div class="flex space-between align-items-center">
+        <div class="flex justify-between align-items-center">
             <div class="detail__input">
-                <img src="{{ $product->image }}" alt="{{ $product->name }}" width="350px" id="imagePreview">
+                <img src="{{ $product->image }}" alt="{{ $product->name }}" width="300" id="imagePreview">
                 <input class="form__input-file" type="file" id="image" name="image" onchange="previewImage(event)">
                 <div class="error">
                     @error('image')
@@ -56,7 +56,7 @@
             </div>
         </div>
         <label for="description">商品説明</label>
-        <textarea class="form__input-field--textarea" name="description" id="description" cols="30" rows="10"
+        <textarea class="form__input-field--textarea" name="description" id="description" cols="30" rows="8"
             placeholder="商品の説明を入力">{{ $product->description }}</textarea>
         <div class="error">
             @error('description')
@@ -72,7 +72,7 @@
     <form action="{{ route('delete',  ['productId' => $product->id]) }}" method="post"
         onsubmit="return confirm('本当に削除しますか？')">
         @csrf
-        <button class="detail__btn-delete" type="submit">
+        <button class="detail__delete-btn" type="submit">
             <i class="bi bi-trash"></i>
         </button>
     </form>

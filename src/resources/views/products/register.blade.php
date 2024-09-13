@@ -6,7 +6,7 @@
     <form action="{{ route('store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="flex align-items-center">
-            <label for="name">商品名</label>
+            <label class="register__label" for="name">商品名</label>
             <span class="required">必須</span>
         </div>
         <input class="form__input-field" type="text" name="name" id="name" value="{{ old('name') }}"
@@ -17,7 +17,7 @@
             @enderror
         </div>
         <div class="flex align-items-center">
-            <label for="price">値段</label>
+            <label class="register__label" for="price">値段</label>
             <span class="required">必須</span>
         </div>
         <input class="form__input-field" type="number" name="price" id="price" value="{{ old('price') }}"
@@ -28,7 +28,7 @@
             @enderror
         </div>
         <div class="flex align-items-center">
-            <label for="image">製品画像</label>
+            <label class="register__label" for="image">商品画像</label>
             <span class="required">必須</span>
         </div>
         <img src="" alt="" width="350px" id="imagePreview" style="margin: .25rem">
@@ -39,7 +39,7 @@
             @enderror
         </div>
         <div class="flex align-items-center">
-            <label>季節</label>
+            <label class="register__label">季節</label>
             <span class="required">必須</span>
             <span class="register__span">複数選択可</span>
         </div>
@@ -63,10 +63,10 @@
             @enderror
         </div>
         <div class="flex align-items-center">
-            <label for="description">商品説明</label>
+            <label class="register__label" for="description">商品説明</label>
             <span class="required">必須</span>
         </div>
-        <textarea class="form__input-field--textarea" name="description" id="description" cols="30" rows="10"
+        <textarea class="form__input-field--textarea" name="description" id="description" cols="30" rows="8"
             placeholder="商品の説明を入力">{{ old('description') }}</textarea>
         <div class="error">
             @error('description')

@@ -2,7 +2,7 @@
 
 @section('main')
 <div class="product-lists">
-    <div class="flex space-between align-items-center product-lists__ttl-group">
+    <div class="flex justify-between align-items-center">
         @if(!empty($name))
         <h2 class="product-lists__ttl">“{{ $name }}”の商品一覧</h2>
         @else
@@ -13,7 +13,7 @@
             {{ session('fs_msg') }}
         </div>
         @endif
-        <a class="product-lists__link" href="{{ route('create') }}">+ 商品を追加</a>
+        <a class="product-lists__create-link" href="{{ route('create') }}">+ 商品を追加</a>
     </div>
     <div class="product-lists__grid">
         <div class="product-lists__search">
@@ -49,12 +49,12 @@
         @if($products->isEmpty())
         <p class='error'>{{ $message }}</p>
         @endif
-        <div class="product-lists__card__grid">
+        <div class="product-lists__card-grid">
             @foreach ($products as $product)
             <div class="product-card">
-                <a class="product-card__link" href="{{ route('detail', ['productId' => $product->id]) }}">
+                <a class="product-card__detail-link" href="{{ route('detail', ['productId' => $product->id]) }}">
                     <img class="product-card__img" src="{{ $product->image }}" alt="{{ $product->name }}">
-                    <div class="flex space-between align-items-center product-card__detail">
+                    <div class="flex justify-between align-items-center product-card__txt">
                         <p>{{ $product->name }}</p>
                         <p>￥{{ $product->price }}</p>
                     </div>
@@ -63,8 +63,10 @@
             @endforeach
         </div>
     </div>
-    @if($products->isNotEmpty())
-    {{ $products->links('vendor.pagination.custom') }}
-    @endif
+    <div class="flex center">
+        @if($products->isNotEmpty())
+        {{ $products->links('vendor.pagination.custom') }}
+        @endif
+    </div>
 </div>
 @endsection
