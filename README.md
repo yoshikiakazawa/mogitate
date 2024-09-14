@@ -25,9 +25,15 @@
 git clone git@github.com:yoshikiakazawa/mogitate.git
 ```
 
-2. DockerDesktop アプリを立ち上げる
+2. ディレクトリ移動
 
-3. 複数コンテナを一括で作成・起動
+```bash
+cd mogitate
+```
+
+3. DockerDesktop アプリを立ち上げる
+
+4. 複数コンテナを一括で作成・起動
 
 ```bash
 docker-compose up -d --build
