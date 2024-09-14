@@ -31,7 +31,7 @@
             <label class="register__label" for="image">商品画像</label>
             <span class="required">必須</span>
         </div>
-        <img src="" alt="" width="350px" id="imagePreview" style="margin: .25rem">
+        <img src="" alt="" width="350" id="imagePreview" style="margin: .25rem">
         <input class="form__input-file" type="file" id="image" name="image" onchange="previewImage(event)">
         <div class="error">
             @error('image')

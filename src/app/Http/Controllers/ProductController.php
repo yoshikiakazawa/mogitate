@@ -62,14 +62,14 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->save();
         $product->seasons()->sync($request->input('seasons', []));
-        session()->flash('fs_msg', '変更しました。');
+        session()->flash('flash_message', '変更しました。');
         return redirect()->route('index');
     }
 
     public function delete($productId)
     {
         $product = Product::find($productId)->delete();
-        session()->flash('fs_msg', '削除しました。');
+        session()->flash('flash_message', '削除しました。');
         return redirect()->route('index');
     }
 
@@ -87,7 +87,7 @@ class ProductController extends Controller
             'description' => $request->description,
         ]);
         $product->seasons()->sync($request->input('seasons', []));
-        session()->flash('fs_msg', '登録しました。');
+        session()->flash('flash_message', '登録しました。');
         return redirect()->route('index');
     }
 }

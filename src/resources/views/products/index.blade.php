@@ -8,9 +8,9 @@
         @else
         <h2 class="product-lists__ttl">商品一覧</h2>
         @endif
-        @if (session('fs_msg'))
+        @if (session('flash_message'))
         <div class="flash_message">
-            {{ session('fs_msg') }}
+            {{ session('flash_message') }}
         </div>
         @endif
         <a class="product-lists__create-link" href="{{ route('create') }}">+ 商品を追加</a>
@@ -49,7 +49,7 @@
         @if($products->isEmpty())
         <p class='error'>{{ $message }}</p>
         @endif
-        <div class="product-lists__card-grid">
+        <div class="flex wrap product-lists__box">
             @foreach ($products as $product)
             <div class="product-card">
                 <a class="product-card__detail-link" href="{{ route('detail', ['productId' => $product->id]) }}">

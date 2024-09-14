@@ -140,15 +140,14 @@
     cursor: pointer;
 }
 
-.product-lists__card-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
+.product-lists__box {
     margin-bottom: 1rem;
 }
 
 .product-card {
+    width: 300px;
     min-width: 230px;
+    height: 260px;
     background-color: rgb(255,255,255);
     border-radius: 5px;
     box-shadow: 2px 2px 4px gray;
@@ -161,8 +160,9 @@
 
 .product-card__img {
     border-radius: 5px 5px 0 0;
-    width: 100%;
-    height: auto;
+    width: 300px;
+    height: 200px;
+    max-height: 200px;
     object-fit: cover;
     transition: opacity 0.3s ease;
 }

@@ -23,6 +23,11 @@ input, textarea, select:focus {
     display: flex;
 }
 
+.wrap {
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
 .center {
     justify-content: center;
 }
@@ -38,10 +43,6 @@ input, textarea, select:focus {
 .flex-column {
     display: flex;
     flex-direction: column;
-}
-
-.ml-a{
-    margin-left: auto;
 }
 
 .error {
